@@ -1,14 +1,20 @@
 package main.java.org.io.Utils;
 
-import main.java.org.io.App.Users;
+import main.java.org.io.DAOs.User;
+import main.java.org.io.DAOs.UserType;
 
 public class AuthUtil extends Util {
+
+    static User loggedUser = null;
+
     public static boolean authenticate(String username, String password){
-        return true;
+        loggedUser = dbService.getUser(username, password);
+
+        return loggedUser != null;
     }
 
-    public static Users getUserType(String username){
-        return Users.Admin;
+    public static UserType getUserType(){
+        return loggedUser.getUserType();
     }
 
 }
