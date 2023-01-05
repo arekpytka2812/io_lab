@@ -37,4 +37,10 @@ public class Bus {
     public void setStatus(BusStatus status) {
         this.status = status;
     }
+
+    @Override
+    public String toString(){
+
+        return ID + "_" + status.toString() + "_X:_" + posX + "_Y:_" + posY;
+    }
 }

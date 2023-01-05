@@ -1,30 +1,28 @@
 package main.java.org.io.Utils;
 
-import main.java.org.io.DAOs.Bus;
-import main.java.org.io.DAOs.BusStatus;
+import main.java.org.io.DAOs.*;
 
 import java.util.List;
 
 public class DispatchUtil extends Util {
 
-    public static void sendReplacementBus(){
+    public static List<BreakDown> getBreakDowns(){
+        return dbService.getBreakDownList();
+    }
+
+    public static List<BreakDown> getUnresolvedBreakDowns(){
+        return dbService.getUnresolvedBreakDownList();
+    }
+
+    public static List<Bus> getAvailableBuses(){
+        return dbService.getAvailableBuses();
+    }
+
+    public static void sendReplacementBus(Bus chosenBus, BreakDown resolvedBreakdown){
 
         //var brokenBusInfo = dbService.getBreakDownInfo();
-        var availableBuses = dbService.getAvailableBuses();
-
-        if(availableBuses.isEmpty())
-            return;
-
-        var chosenBusID = chooseBus(availableBuses);
-
-        dbService.changeBusStatus(chosenBusID, BusStatus.OnRoute);
-
+        dbService.changeBusStatus(chosenBus, BusStatus.OnRoute);
+        dbService.changeBreakDownStatus(resolvedBreakdown, BreakDownStatus.RESOLVED);
     }
-
-    private static int chooseBus(List<Bus> busList) {
-        System.out.println("Choosing bus...");
-        return 0;
-    }
-
 
 }

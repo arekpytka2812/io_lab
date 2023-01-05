@@ -1,6 +1,6 @@
-package main.java.org.io.App;
+package main.java.org.io.DAOs;
 
-public enum Users {
+public enum UserType {
     Admin,
     Dispatcher,
     Driver,
