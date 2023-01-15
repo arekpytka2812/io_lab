@@ -1,4 +1,4 @@
-package main.java.org.io.App;
+package org.io.App;
 
 
 class Main{

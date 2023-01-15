@@ -1,6 +1,6 @@
-package main.java.org.io.Utils;
+package org.io.Utils;
 
-import main.java.org.io.DAOs.*;
+import org.io.DAOs.*;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -31,7 +31,11 @@ public class DbService{
     private void initializeData(){
 
         usersMap.put("admin", new User("admin", "test", UserType.Admin));
-        // TODO dodanie jakis obiektow
+        usersMap.put("test", new User("test", "haslo", UserType.Driver));
+        usersMap.put("bus234", new User("bus234", "bus234pass", UserType.Bus));
+        usersMap.put("disNr123", new User("disNr123", "disNr123pass", UserType.Dispatcher));
+        usersMap.put("board1", new User("board1", "board1pass", UserType.Board));
+
     }
 
     public User getUser(String username, String password){
@@ -61,6 +65,11 @@ public class DbService{
     public List<BusStop> getStops(){
         return busStopList;
     }
+
+    public List<Line> getLines(){
+        return lineList;
+    }
+
 
     public BreakDown getBreakDownInfo(int index) {
         return breakDownList.get(index);

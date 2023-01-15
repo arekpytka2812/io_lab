@@ -1,4 +1,4 @@
-package main.java.org.io.DAOs;
+package org.io.DAOs;
 
 public class User {
 
@@ -20,7 +20,16 @@ public class User {
         return false;
     }
 
+    public String getUsername(){
+        return username;
+    }
+
+    public String getPassword(){
+        return password;
+    }
+
     public UserType getUserType() {
         return userType;
     }
+
 }

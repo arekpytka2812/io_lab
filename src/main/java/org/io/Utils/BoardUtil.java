@@ -1,4 +1,4 @@
-package main.java.org.io.Utils;
+package org.io.Utils;
 
 public class BoardUtil extends Util{
 

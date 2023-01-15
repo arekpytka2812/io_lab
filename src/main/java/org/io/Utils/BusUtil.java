@@ -1,8 +1,8 @@
-package main.java.org.io.Utils;
+package org.io.Utils;
 
-import main.java.org.io.DAOs.BreakDown;
-import main.java.org.io.DAOs.Bus;
-import main.java.org.io.DAOs.BusStatus;
+import org.io.DAOs.BreakDown;
+import org.io.DAOs.Bus;
+import org.io.DAOs.BusStatus;
 
 public class BusUtil extends Util{
 

@@ -1,4 +1,4 @@
-package main.java.org.io.DAOs;
+package org.io.DAOs;
 
 import java.util.List;
 
