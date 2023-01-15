@@ -1,4 +1,4 @@
-package main.java.org.io.DAOs;
+package org.io.DAOs;
 
 public class BusStop {
 
@@ -9,6 +9,7 @@ public class BusStop {
         this.ID = ID;
         this.name = name;
     }
+
 
     
 }

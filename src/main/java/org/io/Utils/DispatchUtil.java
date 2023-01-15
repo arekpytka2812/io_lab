@@ -1,6 +1,6 @@
-package main.java.org.io.Utils;
+package org.io.Utils;
 
-import main.java.org.io.DAOs.*;
+import org.io.DAOs.*;
 
 import java.util.List;
 
@@ -17,6 +17,15 @@ public class DispatchUtil extends Util {
     public static List<Bus> getAvailableBuses(){
         return dbService.getAvailableBuses();
     }
+
+    public static List<BusStop> getStops(){
+        return dbService.getStops();
+    }
+
+    public static List<Line> getLines(){
+        return dbService.getLines();
+    }
+
 
     public static void sendReplacementBus(Bus chosenBus, BreakDown resolvedBreakdown){
 

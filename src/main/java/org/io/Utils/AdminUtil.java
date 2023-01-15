@@ -1,8 +1,8 @@
-package main.java.org.io.Utils;
+package org.io.Utils;
 
-import main.java.org.io.DAOs.Bus;
-import main.java.org.io.DAOs.BusStop;
-import main.java.org.io.DAOs.Line;
+import org.io.DAOs.Bus;
+import org.io.DAOs.BusStop;
+import org.io.DAOs.Line;
 
 
 public class AdminUtil extends Util {

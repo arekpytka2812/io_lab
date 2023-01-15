@@ -1,7 +1,7 @@
-package main.java.org.io.App;
+package org.io.App;
 
-import main.java.org.io.DAOs.UserType;
-import main.java.org.io.Utils.*;
+import org.io.DAOs.*;
+import org.io.Utils.*;
 
 import java.util.Scanner;
 

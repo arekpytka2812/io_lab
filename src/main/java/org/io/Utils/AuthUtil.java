@@ -1,7 +1,7 @@
-package main.java.org.io.Utils;
+package org.io.Utils;
 
-import main.java.org.io.DAOs.User;
-import main.java.org.io.DAOs.UserType;
+import org.io.DAOs.User;
+import org.io.DAOs.UserType;
 
 public class AuthUtil extends Util {
 

@@ -1,4 +1,4 @@
-package main.java.org.io.DAOs;
+package org.io.DAOs;
 
 public class Bus {
 
@@ -8,6 +8,13 @@ public class Bus {
 
     public Bus(int ID){
         this.ID = ID;
+    }
+
+    public Bus(int ID, double posX, double posY, BusStatus busStatus){
+        this.ID = ID;
+        this.posX = posX;
+        this.posY = posY;
+        this.status = busStatus;
     }
 
     public int getID(){
