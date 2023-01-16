@@ -8,7 +8,6 @@ public class BoardUtil extends Util{
     public static void showInfo(){
 
     }
-
     private static void updateInfo(){
 
     }

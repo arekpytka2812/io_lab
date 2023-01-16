@@ -1,19 +1,27 @@
+package Test;
+
 import org.io.DAOs.User;
 import org.io.DAOs.UserType;
 import org.io.Utils.AuthUtil;
 import org.junit.Before;
-import org.junit.jupiter.api.*;
+import org.junit.experimental.categories.Categories;
+import org.junit.experimental.categories.Category;
+import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.BeforeAll;
+import org.junit.jupiter.api.DisplayName;
+import org.junit.runner.RunWith;
+import org.junit.Test;
 
 import java.util.ArrayList;
 import java.util.List;
 
-
-public class FacadeTest {
+@Category({FactoryTest.class})
+public class Task4test {
 
     List<User> correctUserList = new ArrayList<>();
     List<User> incorrectUserList = new ArrayList<>();
 
-    @Before
+    @BeforeAll
     public void setup() {
 
         // setting up correct users
@@ -34,8 +42,9 @@ public class FacadeTest {
     }
 
     @Test
+    @Category({AuthTest.class})
     @DisplayName("Auth test / Correct credentials")
-    void testCorrectCredentials(){
+    public void testCorrectCredentials(){
 
         for(var element : correctUserList){
 
@@ -45,8 +54,9 @@ public class FacadeTest {
     }
 
     @Test
+    @Category({AuthTest.class})
     @DisplayName("Auth test / Incorrect credentials")
-    void testIncorrectCredentials(){
+    public void testIncorrectCredentials(){
 
         for(var element : incorrectUserList){
 
@@ -56,8 +66,9 @@ public class FacadeTest {
     }
 
     @Test
+    @Category({AuthTest.class})
     @DisplayName("UserType Test")
-    void testUserType(){
+    public void testUserType(){
 
         for(var element : correctUserList){
 

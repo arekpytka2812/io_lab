@@ -1,28 +1,36 @@
+package Test;
+
 import org.io.DAOs.Bus;
 import org.io.DAOs.BusStatus;
 import org.io.DAOs.BusStop;
 import org.io.DAOs.Line;
 import org.io.Utils.AdminUtil;
 import org.io.Utils.DispatchUtil;
+import org.junit.BeforeClass;
+import org.junit.Test;
 import org.junit.Before;
-import org.junit.jupiter.api.*;
+import org.junit.experimental.categories.Categories;
+import org.junit.experimental.categories.Category;
+import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.BeforeAll;
+import org.junit.jupiter.api.DisplayName;
+import org.junit.runner.RunWith;
+import org.junit.runners.Suite;
 
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
-
-public class FactoryTest {
+@Category({FactoryTest.class})
+public class Task3test {
 
     List<Bus> busDataList = new ArrayList<>();
     List<Bus> availableBusList = new ArrayList<>();
     List<BusStop> busStopList = new ArrayList<>();
     List<List<BusStop>> routesList = new ArrayList<>();
-
     List<Line> linesData = new ArrayList<>();
 
-
-    @Before
+    @BeforeAll
     public void setup() {
         insertBusTestData();
         insertStopTestData();
@@ -44,7 +52,6 @@ public class FactoryTest {
 
         // filling available bus list
         for(var bus : busDataList){
-            AdminUtil.addBus(bus);
             if(bus.getStatus().equals(BusStatus.Available)){
                 availableBusList.add(bus);
             }
@@ -65,19 +72,19 @@ public class FactoryTest {
 
     public void insertLinesData(){
         routesList.add(new ArrayList<>());
-        routesList.get(0).addAll(Arrays.asList(busStopList.get(2), busStopList.get(3), busStopList.get(1), busStopList.get(4)));
+        routesList.get(0).addAll(Arrays.asList(busStopList.get(1), busStopList.get(2), busStopList.get(0), busStopList.get(3)));
 
         routesList.add(new ArrayList<>());
-        routesList.get(1).addAll(Arrays.asList(busStopList.get(1), busStopList.get(2), busStopList.get(3), busStopList.get(4)));
+        routesList.get(1).addAll(Arrays.asList(busStopList.get(0), busStopList.get(1), busStopList.get(2), busStopList.get(3)));
 
         routesList.add(new ArrayList<>());
-        routesList.get(2).addAll(Arrays.asList(busStopList.get(3), busStopList.get(4), busStopList.get(2), busStopList.get(1)));
+        routesList.get(2).addAll(Arrays.asList(busStopList.get(2), busStopList.get(3), busStopList.get(0), busStopList.get(0)));
 
         routesList.add(new ArrayList<>());
-        routesList.get(3).addAll(Arrays.asList(busStopList.get(4), busStopList.get(1), busStopList.get(2), busStopList.get(3)));
+        routesList.get(3).addAll(Arrays.asList(busStopList.get(3), busStopList.get(0), busStopList.get(1), busStopList.get(2)));
 
         routesList.add(new ArrayList<>());
-        routesList.get(4).addAll(Arrays.asList(busStopList.get(1), busStopList.get(3), busStopList.get(1), busStopList.get(2)));
+        routesList.get(4).addAll(Arrays.asList(busStopList.get(3), busStopList.get(2), busStopList.get(0), busStopList.get(1)));
 
         linesData.add(new Line(routesList.get(0), 1));
         linesData.add(new Line(routesList.get(1), 2));
@@ -93,23 +100,27 @@ public class FactoryTest {
 
 
     @Test
+    @Category({DatabaseTest.class})
     @DisplayName("Buses function test")
-    void getAvailableBusesTest(){
-        // asserting that only available busses are get from database
+    public void getAvailableBusesTest(){
+        // asserting that available buses are properly get for Dispatcher
         Assertions.assertEquals(DispatchUtil.getAvailableBuses(), availableBusList);
     }
 
     @Test
+    @Category({DatabaseTest.class})
     @DisplayName("Stops function test")
-    void getStopTest(){
-        // asserting that stops are inserted correctly
+    public void getStopTest(){
+        // asserting that stops are properly get for Dispatcher
         Assertions.assertEquals(DispatchUtil.getStops(), busStopList);
     }
 
     @Test
-    @DisplayName("Line function test")
-    void lineCreationTest(){
-
+    @Category({DatabaseTest.class})
+    @DisplayName("Lines function test")
+    public void lineCreationTest(){
+        // asserting that lines are properly get for Dispatcher
         Assertions.assertEquals(DispatchUtil.getLines(), linesData);
+
     }
 }

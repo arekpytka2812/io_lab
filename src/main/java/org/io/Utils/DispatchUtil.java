@@ -9,19 +9,15 @@ public class DispatchUtil extends Util {
     public static List<BreakDown> getBreakDowns(){
         return dbService.getBreakDownList();
     }
-
     public static List<BreakDown> getUnresolvedBreakDowns(){
         return dbService.getUnresolvedBreakDownList();
     }
-
     public static List<Bus> getAvailableBuses(){
         return dbService.getAvailableBuses();
     }
-
     public static List<BusStop> getStops(){
         return dbService.getStops();
     }
-
     public static List<Line> getLines(){
         return dbService.getLines();
     }
