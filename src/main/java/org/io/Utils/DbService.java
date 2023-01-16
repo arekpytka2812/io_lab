@@ -9,9 +9,7 @@ import java.util.Map;
 
 
 public class DbService{
-
     Map<String, User> usersMap;
-
     List<Bus> busList;
     List<BusStop> busStopList;
     List<Line> lineList;
@@ -48,6 +46,10 @@ public class DbService{
         }
 
         return usersMap.get(username);
+    }
+
+    public void insertUser(User user){
+        this.usersMap.put(user.getUsername(), user);
     }
 
     public void insertBus(Bus bus){

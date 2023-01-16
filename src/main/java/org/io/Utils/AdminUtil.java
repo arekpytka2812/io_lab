@@ -3,10 +3,10 @@ package org.io.Utils;
 import org.io.DAOs.Bus;
 import org.io.DAOs.BusStop;
 import org.io.DAOs.Line;
+import org.io.DAOs.User;
 
 
 public class AdminUtil extends Util {
-
     public static void addBus(Bus bus){
 
         try{
@@ -36,6 +36,10 @@ public class AdminUtil extends Util {
         catch(Exception e){
             System.out.println("Line insert failed");
         }
+    }
+
+    public static void addUser(User user){
+        dbService.insertUser(user);
     }
 
     public static void replaceBus(Bus bus){

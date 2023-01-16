@@ -11,4 +11,8 @@ public class Line {
         this.route = route;
         this.lineNumber = lineNumber;
     }
+
+    public List<BusStop> getRoute(){
+        return route;
+    }
 }

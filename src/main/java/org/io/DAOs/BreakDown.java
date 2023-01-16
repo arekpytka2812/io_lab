@@ -7,11 +7,11 @@ public class BreakDown {
     private final int ID;
     private final int brokenBusID;
     private final BreakDownType type;
-    private final int busXPosition, busYPosition;
+    private final double busXPosition, busYPosition;
 
     private BreakDownStatus status = BreakDownStatus.TO_BE_RESOLVED;
 
-    public BreakDown(int brokenBusID, int busXPosition, int busYPosition, BreakDownType type){
+    public BreakDown(int brokenBusID, double busXPosition, double busYPosition, BreakDownType type){
         this.ID = breakdownCounter++;
         this.brokenBusID = brokenBusID;
         this.busXPosition = busXPosition;
@@ -27,11 +27,11 @@ public class BreakDown {
         return brokenBusID;
     }
 
-    public int getBusXPosition(){
+    public double getBusXPosition(){
         return busXPosition;
     }
 
-    public int getBusYPosition(){
+    public double getBusYPosition(){
         return busYPosition;
     }
 
