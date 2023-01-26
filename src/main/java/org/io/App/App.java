@@ -11,12 +11,12 @@ public class App {
     private static UserType USERTYPE = UserType.Unlogged;
     private static Scanner SCANNER = new Scanner(System.in);
 
-    public static void run(){
+    public void run(){
         runLoginWindow();
         openMainWindow();
     }
 
-    private static void runLoginWindow(){
+    private void runLoginWindow(){
         String username = null, password = null;
 
         do{
@@ -30,7 +30,7 @@ public class App {
         USERTYPE = AuthUtil.getUserType();
     }
 
-    private static void openMainWindow(){
+    private void openMainWindow(){
         switch (USERTYPE) {
             case Admin:
                 openAdminWindow();
@@ -51,19 +51,19 @@ public class App {
         }
     }
 
-    private static void openAdminWindow(){
+    private void openAdminWindow(){
 
     }
 
-    private static void openDispatcherWindow(){
+    private void openDispatcherWindow(){
 
     }
 
-    private static void openDriverWindow(){
+    private void openDriverWindow(){
 
     }
 
-    private static void openBusWindow(){
+    private void openBusWindow(){
 
     }
 }

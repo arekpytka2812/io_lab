@@ -45,7 +45,7 @@ public class Task2test {
         busDataList.add(new Bus(5, 1.0, 9.3, BusStatus.Available));
 
         // adding busses to database
-        for(var bus : busDataList){
+        for(Bus bus : busDataList){
             dbService.insertBus(bus);
         }
 
@@ -91,7 +91,7 @@ public class Task2test {
         linesData.add(new Line(routesList.get(3), 4));
         linesData.add(new Line(routesList.get(4), 5));
 
-        for(var line : linesData){
+        for(Line line : linesData){
             dbService.insertLine(line);
         }
 
