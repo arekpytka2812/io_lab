@@ -3,7 +3,9 @@ package org.io.App;
 import org.io.DAOs.*;
 import org.io.Utils.*;
 
+import java.util.List;
 import java.util.Scanner;
+import java.util.concurrent.ThreadPoolExecutor;
 
 
 public class App {
@@ -11,12 +13,12 @@ public class App {
     private static UserType USERTYPE = UserType.Unlogged;
     private static Scanner SCANNER = new Scanner(System.in);
 
-    public static void run(){
+    public void run(){
         runLoginWindow();
         openMainWindow();
     }
 
-    private static void runLoginWindow(){
+    private void runLoginWindow(){
         String username = null, password = null;
 
         do{
@@ -28,9 +30,11 @@ public class App {
         } while(!AuthUtil.authenticate(username, password));
 
         USERTYPE = AuthUtil.getUserType();
+
+
     }
 
-    private static void openMainWindow(){
+    private void openMainWindow(){
         switch (USERTYPE) {
             case Admin:
                 openAdminWindow();
@@ -51,19 +55,43 @@ public class App {
         }
     }
 
-    private static void openAdminWindow(){
+    private void openAdminWindow(){
 
     }
 
-    private static void openDispatcherWindow(){
+    private void openDispatcherWindow(){
 
     }
 
-    private static void openDriverWindow(){
+    private void openDriverWindow(){
 
     }
 
-    private static void openBusWindow(){
+    private void openBusWindow(){
 
     }
+
+    public void addBus(Bus bus){
+        AdminUtil.addBus(bus);
+    }
+
+    public void addStop(BusStop busStop){
+        AdminUtil.addStop(busStop);
+    }
+
+    public void addline(Line line) {AdminUtil.addLine(line);}
+
+    public List<Bus> getBusList(){
+        return DispatchUtil.getBusList();
+    }
+
+    public List<Bus> getAvailableBuses(){
+        return DispatchUtil.getAvailableBuses();
+    }
+
+    public List<BusStop> getStops(){
+        return DispatchUtil.getStops();
+    }
+
+    public List<Line> getLines() {return DispatchUtil.getLines();}
 }

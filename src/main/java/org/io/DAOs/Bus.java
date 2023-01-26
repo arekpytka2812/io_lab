@@ -10,6 +10,11 @@ public class Bus {
         this.ID = ID;
     }
 
+    public Bus(int ID, BusStatus busStatus){
+        this.ID = ID;
+        this.status = busStatus;
+    }
+
     public Bus(int ID, double posX, double posY, BusStatus busStatus){
         this.ID = ID;
         this.posX = posX;
