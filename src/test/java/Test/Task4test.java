@@ -46,7 +46,7 @@ public class Task4test {
     @DisplayName("Auth test / Correct credentials")
     public void testCorrectCredentials(){
 
-        for(var element : correctUserList){
+        for(User element : correctUserList){
 
             // asserting that there is such user in database
             Assertions.assertTrue(AuthUtil.authenticate(element.getUsername(), element.getPassword()));
@@ -58,7 +58,7 @@ public class Task4test {
     @DisplayName("Auth test / Incorrect credentials")
     public void testIncorrectCredentials(){
 
-        for(var element : incorrectUserList){
+        for(User element : incorrectUserList){
 
             // asserting that there is such user in database
             Assertions.assertFalse(AuthUtil.authenticate(element.getUsername(), element.getPassword()));
@@ -70,7 +70,7 @@ public class Task4test {
     @DisplayName("UserType Test")
     public void testUserType(){
 
-        for(var element : correctUserList){
+        for(User element : correctUserList){
 
             // logging into current session
             AuthUtil.authenticate(element.getUsername(), element.getPassword());

@@ -48,6 +48,10 @@ public class DbService{
         return usersMap.get(username);
     }
 
+    public List<Bus> getBusList(){
+        return this.busList;
+    }
+
     public void insertUser(User user){
         this.usersMap.put(user.getUsername(), user);
     }
@@ -84,7 +88,7 @@ public class DbService{
     public List<BreakDown> getUnresolvedBreakDownList(){
         List<BreakDown> returnList = new ArrayList<>();
 
-        for(var breakdown : breakDownList){
+        for(BreakDown breakdown : breakDownList){
             if(breakdown.getStatus() == BreakDownStatus.TO_BE_RESOLVED)
                 returnList.add(breakdown);
         }
